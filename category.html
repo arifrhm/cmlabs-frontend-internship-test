@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <title>Category Meals</title>
+</head>
+<body class="bg-gray-50">
+    <div id="navbar"></div> <!-- Section untuk navbar -->
+
+    <!-- Breadcrumb Section -->
+    <nav class="bg-white shadow py-2">
+        <div class="container mx-auto px-4">
+            <ol class="list-reset flex text-grey-dark">
+                <li><a href="index.html" class="text-blue-500 hover:text-blue-700">Home</a></li>
+                <li><span class="mx-2">></span></li>
+                <li><a href="index.html" class="text-blue-500 hover:text-blue-700">Foods</a></li>
+                <li><span class="mx-2">></span></li>
+                <li id="current-category" class="text-gray-500"></li> <!-- Placeholder for current category -->
+            </ol>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="bg-blue-500 text-white p-10 text-center">
+        <h2 class="text-4xl font-bold">Category Meals</h2>
+        <p class="mt-4 text-lg">Explore the meals in your favorite categories!</p>
+    </section>
+
+    <!-- Main Content -->
+    <main class="container mx-auto">
+        <h2 class="text-3xl font-bold my-5 text-center" id="category-name"></h2>
+        <h2 class="text-3xl font-bold my-5 text-center">Meals in Category</h2>
+        <div id="meal-container" class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 p-4"></div>
+    </main>
+
+    <script>
+        // Load navbar
+        fetch('navbar.html')
+            .then(response => response.text())
+            .then(data => {
+                document.getElementById('navbar').innerHTML = data;
+                // Tambahkan logika menu hamburger di sini
+                document.getElementById('hamburger').addEventListener('click', function () {
+                    const mobileMenu = document.getElementById('mobile-menu');
+                    mobileMenu.classList.toggle('hidden');
+                });
+            });
+    </script>
+
+    <script src="script.js"></script>
+</body>
+</html>

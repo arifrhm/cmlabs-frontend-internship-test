@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <title>Meal Categories</title>
+</head>
+<body class="bg-gray-50">
+    <div id="navbar"></div> <!-- Placeholder untuk navbar -->
+
+    <!-- Hero Section -->
+    <section class="bg-blue-500 text-white p-10 text-center">
+        <h2 class="text-4xl font-bold">Discover Delicious Meals</h2>
+        <p class="mt-4 text-lg">Explore a variety of categories and find your favorite dishes!</p>
+    </section>
+
+    <!-- Main Content -->
+    <main class="container mx-auto">
+        <h2 class="text-3xl font-bold my-5 text-center">See All The Delicious Foods</h2>
+        <div id="category-container" class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 p-4"></div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-white shadow mt-10">
+        <div class="container mx-auto px-4 py-5 text-center">
+            <p class="text-sm">© 2024 mealapp. All rights reserved.</p>
+        </div>
+    </footer>
+    
+    <script>
+        // Load navbar
+        fetch('navbar.html')
+            .then(response => response.text())
+            .then(data => {
+                document.getElementById('navbar').innerHTML = data;
+
+                // Tambahkan logika untuk menu hamburger
+                document.getElementById('hamburger').addEventListener('click', function () {
+                    const mobileMenu = document.getElementById('mobile-menu');
+                    mobileMenu.classList.toggle('hidden');
+                });
+            });
+    </script>
+    <script src="script.js"></script>
+</body>
+</html>
